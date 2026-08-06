@@ -57,4 +57,16 @@ window.PROFILE_CONFIG.fields.push({
   placeholder: "1～5から選択", type: "select", min: 1, max: 5
 });
 const jawsSection = window.PROFILE_CONFIG.sections.find((section) => section.title === "JAWS PLAYERS");
-if (jawsSection) jawsSection.fields = jawsSection.fields.map((id) => id === "favoriteWords" ? "agiExtra" : id);
+if (jawsSection) jawsSection.fields = jawsSection.fields.filter((id) => id !== "favoriteWords" && id !== "agiExtra");
+// 第6能力：項目名は利用者が入力し、値はほかの能力と同じ1～5。
+window.PROFILE_CONFIG.fields = window.PROFILE_CONFIG.fields.filter((field) => field.id !== "agiExtra");
+window.PROFILE_CONFIG.fields.push({
+  id: "customStatLabel", label: "自由能力の項目名", x: 0.735, y: 0.575,
+  width: 0.075, height: 0.035, fontSize: 0.014, minFontSize: 0.009,
+  lineHeight: 1.2, align: "center", verticalAlign: "middle",
+  maxLength: 8, multiline: false, padding: 0.003,
+  placeholder: "例：LUCK", type: "text"
+});
+const imageSection = window.PROFILE_CONFIG.sections.find((section) => section.title === "画像・能力値");
+if (imageSection) imageSection.fields = ["portrait", "str", "int", "vit", "dex", "agi", "customStatLabel", "customstat"];
+window.PROFILE_CONFIG.radar.labels = ["STR", "INT", "VIT", "DEX", "CUSTOMSTAT", "AGI"];
