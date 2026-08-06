@@ -13,8 +13,9 @@
   function buildTextField(field) {
     const box=create("div",{class:"field"}); const label=create("label",{for:field.id},field.label);
     const counter=create("span",{class:"counter",id:`${field.id}Counter`},`0 / ${field.maxLength}`); label.append(counter); box.append(label);
-    const input=create(field.multiline?"textarea":"input",{id:field.id,name:field.id,placeholder:field.placeholder,maxlength:field.maxLength});
-    if(!field.multiline){ input.type=field.type; if(field.min!=null) input.min=field.min; if(field.max!=null) input.max=field.max; input.inputMode=field.type==="number"?"numeric":"text"; }
+    const input=create(field.type==="select"?"select":field.multiline?"textarea":"input",{id:field.id,name:field.id,placeholder:field.placeholder,maxlength:field.maxLength});
+    if(field.type==="select"){for(let value=field.min;value<=field.max;value++)input.append(create("option",{value},String(value)));}
+    else if(!field.multiline){ input.type=field.type; if(field.min!=null) input.min=field.min; if(field.max!=null) input.max=field.max; input.inputMode=field.type==="number"?"numeric":"text"; }
     box.append(input); return box;
   }
   function buildPortraitFields(container) {
