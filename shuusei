@@ -440,3 +440,51 @@
     "type": "text"
   }
 }
+
+{
+  "fontFamily": "\"TanukiMagic\", \"Yu Gothic\", Meiryo, sans-serif",
+  "field": {
+    "id": "customStatLabel",
+    "label": "自由能力の項目名",
+    "x": 0.818,
+    "y": 0.644,
+    "width": 0.087,
+    "height": 0.035,
+    "fontSize": 0.014,
+    "minFontSize": 0.009,
+    "lineHeight": 1.2,
+    "align": "center",
+    "verticalAlign": "middle",
+    "maxLength": 8,
+    "multiline": false,
+    "padding": 0.003,
+    "placeholder": "例：LUCK",
+    "type": "text"
+  }
+}
+
+アイコン切り抜き範囲
+左上 X比率
+0.38
+左上 Y比率
+0.079
+右上 X比率
+0.488
+右上 Y比率
+0.102
+右下 X比率
+0.469
+右下 Y比率
+0.285
+左下 X比率
+0.361
+左下 Y比率
+0.263
+
+能力値グラフの位置・大きさ
+中心X比率
+0.8605
+中心Y比率
+0.525
+最大半径比率
+0.075

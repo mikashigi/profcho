@@ -35,8 +35,8 @@ window.PROFILE_CONFIG = {
     ["freeSpace","フリースペース",.515,.743,.435,.200,.018,.009,"left","middle",400,true,.012,"例：自己紹介、イラストの説明など自由にどうぞ。"],
     ["deadline","書き終える期限",.815,.970,.110,.030,.014,.009,"center","middle",20,false,.004,"例：8月31日まで"]
   ].map(([id,label,x,y,width,height,fontSize,minFontSize,align,verticalAlign,maxLength,multiline,padding,placeholder,type="text",min,max]) => ({id,label,x,y,width,height,fontSize,minFontSize,lineHeight:1.35,align,verticalAlign,maxLength,multiline,padding,placeholder,type,min,max})),
-  portrait: { points: [[.374,.074],[.490,.094],[.472,.284],[.355,.267]] },
-  radar: { centerX:.860, centerY:.520, radius:.078, labels:["STR","INT","VIT","DEX","AGI"] }
+  portrait: { points: [[.380,.079],[.488,.102],[.469,.285],[.361,.263]] },
+  radar: { centerX:.8605, centerY:.525, radius:.075, labels:["STR","INT","VIT","DEX","AGI"] }
 };
 
 // shuusei で確定した描画設定
@@ -61,8 +61,8 @@ if (jawsSection) jawsSection.fields = jawsSection.fields.filter((id) => id !== "
 // 第6能力：項目名は利用者が入力し、値はほかの能力と同じ1～5。
 window.PROFILE_CONFIG.fields = window.PROFILE_CONFIG.fields.filter((field) => field.id !== "agiExtra");
 window.PROFILE_CONFIG.fields.push({
-  id: "customStatLabel", label: "自由能力の項目名", x: 0.735, y: 0.575,
-  width: 0.075, height: 0.035, fontSize: 0.014, minFontSize: 0.009,
+  id: "customStatLabel", label: "自由能力の項目名", x: 0.818, y: 0.644,
+  width: 0.087, height: 0.035, fontSize: 0.014, minFontSize: 0.009,
   lineHeight: 1.2, align: "center", verticalAlign: "middle",
   maxLength: 8, multiline: false, padding: 0.003,
   placeholder: "例：LUCK", type: "text"
