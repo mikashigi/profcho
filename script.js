@@ -51,7 +51,7 @@
   function buildDeveloperMenu(){
     if(!state.debug||!els.debug)return;
     const original={fontFamily:cfg.fontFamily,fields:cfg.fields.map(f=>({...f}))};
-    const editor=create("div",{class:"dev-editor"}); editor.append(create("strong",{},"文字配置・フォント調整"));
+    document.body.classList.add("debug-mode");switchTab(true);const toggle=create("button",{type:"button",class:"debug-toggle","aria-expanded":"true"},"調整メニューを小さくする");toggle.addEventListener("click",()=>{const collapsed=els.debug.classList.toggle("collapsed");document.body.classList.toggle("debug-collapsed",collapsed);toggle.textContent=collapsed?"調整メニューを開く":"調整メニューを小さくする";toggle.setAttribute("aria-expanded",String(!collapsed))});els.debug.prepend(toggle);const editor=create("div",{class:"dev-editor"}); editor.append(create("strong",{},"文字配置・フォント調整"));
     const grid=create("div",{class:"dev-grid"});
     const add=(id,label,type="number",attrs={})=>{const lab=create("label",{for:id},label);const input=create(type==="select"?"select":"input",{id,type,...attrs});lab.append(input);grid.append(lab);return input};
     const fieldSelect=add("devField","調整する項目","select"); cfg.fields.forEach(f=>fieldSelect.append(create("option",{value:f.id},`${f.label} (${f.id})`)));
