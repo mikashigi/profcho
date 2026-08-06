@@ -488,3 +488,25 @@
 0.525
 最大半径比率
 0.075
+
+{
+  "fontFamily": "\"TanukiMagic\", \"Yu Gothic\", Meiryo, sans-serif",
+  "field": {
+    "id": "deadline",
+    "label": "書き終える期限",
+    "x": 0.811,
+    "y": 0.964,
+    "width": 0.109,
+    "height": 0.03,
+    "fontSize": 0.014,
+    "minFontSize": 0.009,
+    "lineHeight": 1.35,
+    "align": "center",
+    "verticalAlign": "middle",
+    "maxLength": 10,
+    "multiline": false,
+    "padding": 0.004,
+    "placeholder": "JAWS PLAYERS",
+    "type": "text"
+  }
+}
