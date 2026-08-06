@@ -8,8 +8,8 @@ window.PROFILE_CONFIG = {
     { title: "基本プロフィール", fields: ["name","nickname","birthMonth","birthDay","personalityOthers","personalitySelf","charmPoint","dayOff"] },
     { title: "活動について", fields: ["sns","location","skill","hobby"] },
     { title: "好きなもの", fields: ["favoriteGame","favoriteRta","favoriteColor","favoriteFood","favoriteAnimal"] },
-    { title: "JAWS PLAYERS", fields: ["challenge","message","favoriteWords","freeSpace","deadline"] },
-    { title: "画像・能力値", fields: ["portrait","str","int","vit","dex","agi"] }
+    { title: "チャレンジ・メッセージ", fields: ["challenge","message","favoriteWords","freeSpace","deadline"] },
+    { title: "能力値", fields: ["str","int","vit","dex","agi"] }
   ],
   fields: [
     ["name","名前",.105,.083,.09,.03,.018,.012,"center","middle",12,false,.004,"例：じゃわ太郎"],
@@ -33,7 +33,7 @@ window.PROFILE_CONFIG = {
     ["favoriteFood","好きな食べ物",.060,.843,.232,.120,.018,.009,"left","middle",40,true,.010,"例：カレー、プリン"],
     ["favoriteAnimal","好きな動物",.324,.826,.147,.145,.017,.009,"left","middle",40,true,.010,"例：ねこ、ペンギン"],
     ["freeSpace","フリースペース",.515,.743,.435,.200,.018,.009,"left","middle",400,true,.012,"例：自己紹介、イラストの説明など自由にどうぞ。"],
-    ["deadline","書き終える期限",.815,.970,.110,.030,.014,.009,"center","middle",20,false,.004,"例：8月31日まで"]
+    ["deadline","書き終わったら誰に渡す？",.815,.970,.110,.030,.014,.009,"center","middle",30,false,.004,"例：次は○○さんへ"]
   ].map(([id,label,x,y,width,height,fontSize,minFontSize,align,verticalAlign,maxLength,multiline,padding,placeholder,type="text",min,max]) => ({id,label,x,y,width,height,fontSize,minFontSize,lineHeight:1.35,align,verticalAlign,maxLength,multiline,padding,placeholder,type,min,max})),
   portrait: { points: [[.380,.079],[.488,.102],[.469,.285],[.361,.263]] },
   radar: { centerX:.8605, centerY:.525, radius:.075, labels:["STR","INT","VIT","DEX","AGI"] }
@@ -56,7 +56,7 @@ window.PROFILE_CONFIG.fields.push({
   maxLength: 1, multiline: false, padding: 0.004,
   placeholder: "1～5から選択", type: "select", min: 1, max: 5
 });
-const jawsSection = window.PROFILE_CONFIG.sections.find((section) => section.title === "JAWS PLAYERS");
+const jawsSection = window.PROFILE_CONFIG.sections.find((section) => section.title === "チャレンジ・メッセージ");
 if (jawsSection) jawsSection.fields = jawsSection.fields.filter((id) => id !== "favoriteWords" && id !== "agiExtra");
 // 第6能力：項目名は利用者が入力し、値はほかの能力と同じ1～5。
 window.PROFILE_CONFIG.fields = window.PROFILE_CONFIG.fields.filter((field) => field.id !== "agiExtra");
@@ -67,6 +67,6 @@ window.PROFILE_CONFIG.fields.push({
   maxLength: 8, multiline: false, padding: 0.003,
   placeholder: "例：LUCK", type: "text"
 });
-const imageSection = window.PROFILE_CONFIG.sections.find((section) => section.title === "画像・能力値");
-if (imageSection) imageSection.fields = ["portrait", "str", "int", "vit", "dex", "agi", "customStatLabel", "customstat"];
+const imageSection = window.PROFILE_CONFIG.sections.find((section) => section.title === "能力値");
+if (imageSection) imageSection.fields = ["str", "int", "vit", "dex", "agi", "customStatLabel", "customstat"];
 window.PROFILE_CONFIG.radar.labels = ["STR", "INT", "VIT", "CUSTOMSTAT", "DEX", "AGI"];
