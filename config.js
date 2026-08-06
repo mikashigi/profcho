@@ -69,4 +69,4 @@ window.PROFILE_CONFIG.fields.push({
 });
 const imageSection = window.PROFILE_CONFIG.sections.find((section) => section.title === "画像・能力値");
 if (imageSection) imageSection.fields = ["portrait", "str", "int", "vit", "dex", "agi", "customStatLabel", "customstat"];
-window.PROFILE_CONFIG.radar.labels = ["STR", "INT", "VIT", "DEX", "CUSTOMSTAT", "AGI"];
+window.PROFILE_CONFIG.radar.labels = ["STR", "INT", "VIT", "CUSTOMSTAT", "DEX", "AGI"];
