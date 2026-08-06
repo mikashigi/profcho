@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="端末内だけでプロフィール帳画像を作成します"><title>プロフィール帳メーカー</title><link rel="stylesheet" href="style.css?v=3"></head>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="端末内だけでプロフィール帳画像を作成します"><title>プロフィール帳メーカー</title><link rel="stylesheet" href="style.css?v=4"></head>
 <body><header><div class="header-inner"><p class="eyebrow">JAWS PLAYERS</p><h1>プロフィール帳メーカー</h1><p>項目を入力すると、プロフィール帳に自動で書き込まれます。</p><p class="privacy">入力した内容や選択した画像は外部へ送信されません。画像の作成は、お使いの端末内で行われます。</p></div></header>
 <main><div class="mobile-tabs" role="tablist" aria-label="表示切り替え"><button id="inputTab" class="active" role="tab" aria-selected="true">入力する</button><button id="previewTab" role="tab" aria-selected="false">完成を確認する</button></div>
 <div id="status" class="status" role="status" aria-live="polite">背景画像を読み込み中です…</div>
@@ -8,4 +8,4 @@
 <div class="actions"><button id="downloadButton" type="button" class="primary" disabled>完成画像を保存</button><button id="clearButton" type="button" class="danger">入力内容を消す</button></div></section>
 <section id="previewPane" class="preview-pane" aria-label="完成画像プレビュー"><div class="sticky"><h2>完成プレビュー</h2><p id="canvasDescription">入力内容を背景画像へ合成した完成イメージです。</p><div class="canvas-wrap"><canvas id="previewCanvas" aria-describedby="canvasDescription"></canvas><div id="loadingOverlay">読み込み中…</div></div><div id="warnings" class="warnings" aria-live="polite"></div><div id="debugPanel" class="debug-panel" hidden><strong>デバッグ情報</strong><textarea id="debugOutput" readonly></textarea><button id="copyDebug" type="button">座標をコピー</button></div></div></section></div>
 <section id="fallback" class="fallback" hidden><h2>完成画像</h2><p>画像を長押しして端末へ保存してください。</p><img id="fallbackImage" alt="完成したプロフィール帳"></section></main>
-<script src="config.js?v=3"></script><script src="script.js?v=3"></script></body></html>
+<script src="config.js?v=4"></script><script src="script.js?v=4"></script></body></html>

@@ -56,7 +56,7 @@
     const add=(id,label,type="number",attrs={})=>{const lab=create("label",{for:id},label);const input=create(type==="select"?"select":"input",{id,type,...attrs});lab.append(input);grid.append(lab);return input};
     const fieldSelect=add("devField","調整する項目","select"); cfg.fields.forEach(f=>fieldSelect.append(create("option",{value:f.id},`${f.label} (${f.id})`)));
     const fontSelect=add("devFont","描画フォント","select"); [
-      [original.fontFamily,"端末標準ゴシック"],['"Yu Gothic", Meiryo, sans-serif',"游ゴシック"],['Meiryo, sans-serif',"メイリオ"],['"Hiragino Maru Gothic ProN", sans-serif',"ヒラギノ丸ゴ"],['sans-serif',"ブラウザ標準"]
+      [original.fontFamily,"端末標準ゴシック"],['"TanukiMagic", "Yu Gothic", Meiryo, sans-serif',"たぬき油性マジック"],['"Yu Gothic", Meiryo, sans-serif',"游ゴシック"],['Meiryo, sans-serif',"メイリオ"],['"Hiragino Maru Gothic ProN", sans-serif',"ヒラギノ丸ゴ"],['sans-serif',"ブラウザ標準"]
     ].forEach(([v,n])=>fontSelect.append(create("option",{value:v},n)));
     const controls={}; [["x","X比率",0,1,.001],["y","Y比率",0,1,.001],["width","幅比率",.001,1,.001],["height","高さ比率",.001,1,.001],["fontSize","文字サイズ比率",.001,.1,.001],["minFontSize","最小文字比率",.001,.1,.001],["lineHeight","行間",1,2,.05],["padding","余白比率",0,.1,.001]].forEach(([key,label,min,max,step])=>controls[key]=add(`dev-${key}`,label,"number",{min,max,step}));
     controls.align=add("dev-align","横揃え","select"); [["left","左"],["center","中央"],["right","右"]].forEach(([v,n])=>controls.align.append(create("option",{value:v},n)));
@@ -64,7 +64,7 @@
     editor.append(grid); const output=create("textarea",{class:"dev-config",readonly:"",aria_label:"調整済み設定JSON"});
     const refresh=()=>{const f=fieldById(fieldSelect.value);if(!f)return;Object.keys(controls).forEach(k=>controls[k].value=f[k]);output.value=JSON.stringify({fontFamily:cfg.fontFamily,field:{...f}},null,2);scheduleDraw()};
     Object.entries(controls).forEach(([key,input])=>input.addEventListener("input",()=>{const f=fieldById(fieldSelect.value);f[key]=["align","verticalAlign"].includes(key)?input.value:Number(input.value);refresh()}));
-    fieldSelect.addEventListener("change",refresh);fontSelect.addEventListener("change",()=>{cfg.fontFamily=fontSelect.value;refresh()});
+    fieldSelect.addEventListener("change",refresh);fontSelect.addEventListener("change",()=>{cfg.fontFamily=fontSelect.value;refresh();if(document.fonts)document.fonts.ready.then(refresh)});
     const actions=create("div",{class:"dev-actions"});const copy=create("button",{type:"button"},"設定をコピー");const reset=create("button",{type:"button"},"初期値に戻す");
     copy.addEventListener("click",async()=>{const all=JSON.stringify({fontFamily:cfg.fontFamily,fields:cfg.fields},null,2);output.value=all;try{await navigator.clipboard.writeText(all);setStatus("調整した設定をコピーしました。config.jsへ反映できます。")}catch(_){output.select();document.execCommand("copy")}});
     reset.addEventListener("click",()=>{cfg.fontFamily=original.fontFamily;original.fields.forEach((source,i)=>Object.assign(cfg.fields[i],source));fontSelect.value=cfg.fontFamily;refresh()});
